@@ -1,3 +1,5 @@
+<div align="center">
+
 # CAMS
 
 **A full-stack College Academic Management System — grades, timetables, and notices, all in one place.**
@@ -13,6 +15,8 @@
 ![Stars](https://img.shields.io/github/stars/your-username/cams?style=social)
 ![Last commit](https://img.shields.io/github/last-commit/your-username/cams)
 ![Issues](https://img.shields.io/github/issues/your-username/cams)
+
+</div>
 
 ---
 
