@@ -10,9 +10,9 @@
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
-![Stars](https://img.shields.io/github/stars/your-username/campushub?style=social)
-![Last commit](https://img.shields.io/github/last-commit/your-username/campushub)
-![Issues](https://img.shields.io/github/issues/your-username/campushub)
+![Stars](https://img.shields.io/github/stars/your-username/cams?style=social)
+![Last commit](https://img.shields.io/github/last-commit/your-username/cams)
+![Issues](https://img.shields.io/github/issues/your-username/cams)
 
 ---
 
@@ -35,7 +35,7 @@
 
 ## Why
 
-Colleges still run marks on scattered spreadsheets, timetables on WhatsApp forwards, and notices on scattered notice boards. Students chase teachers for grades; teachers chase admins for room changes; admins chase everyone for reports. **CampusHub** puts all three roles — Student, Teacher, and Admin — on one platform, so:
+Colleges still run marks on scattered spreadsheets, timetables on WhatsApp forwards, and notices on scattered notice boards. Students chase teachers for grades; teachers chase admins for room changes; admins chase everyone for reports. **CAMS** puts all three roles — Student, Teacher, and Admin — on one platform, so:
 
 - grades are entered once and show up on the student's dashboard immediately,
 - timetables and notices are updated centrally instead of being re-typed into five group chats,
@@ -107,8 +107,8 @@ A logged-in user's role (Student / Teacher / Admin) determines which routes and 
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/campushub.git
-cd campushub
+git clone https://github.com/your-username/cams.git
+cd cams
 npm install
 ```
 
@@ -116,11 +116,11 @@ npm install
 
 1. Create a MySQL database:
    ```sql
-   CREATE DATABASE campushub;
+   CREATE DATABASE cams;
    ```
 2. Import the schema:
    ```bash
-   mysql -u root -p campushub < database/schema.sql
+   mysql -u root -p cams < database/schema.sql
    ```
 3. Copy `.env.example` to `.env` and fill in your database credentials.
 
@@ -135,7 +135,7 @@ Visit `http://localhost:3000` in your browser.
 ## Project structure
 
 ```
-campushub/
+cams/
 ├── public/            # Static frontend (HTML, CSS, JS)
 │   ├── student/
 │   ├── teacher/
@@ -169,4 +169,4 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 
 ---
 
-*If CampusHub helped with your own college project, consider starring the repo.* ⭐
+*If CAMS helped with your own college project, consider starring the repo.* ⭐
