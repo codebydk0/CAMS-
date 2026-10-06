@@ -1,0 +1,569 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #151515;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    height: 82px;
+
+    /* Logo ko thoda left shift kiya */
+    padding: 0 6% 0 4.5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+/* ================= CAMS LOGO ================= */
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.cams-logo {
+    width: 150px;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+}
+
+.nav-links a {
+    position: relative;
+
+    text-decoration: none;
+
+    color: #333333;
+
+    font-size: 14px;
+
+    padding: 30px 0;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #111111;
+}
+
+.nav-links a.active {
+    color: #111111;
+}
+
+.nav-links a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 18px;
+
+    height: 3px;
+
+    background: #f4c430;
+
+    border-radius: 5px;
+}
+
+
+/* ================= LOGIN ================= */
+
+.login-btn {
+    text-decoration: none;
+
+    background: #f4c430;
+
+    color: #111111;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    padding: 12px 28px;
+
+    border-radius: 7px;
+
+    transition: 0.2s;
+}
+
+.login-btn:hover {
+    background: #e7b600;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: calc(100vh - 82px);
+
+    padding: 55px 6% 45px;
+
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+/* ================= LEFT SIDE ================= */
+
+.hero-content {
+    padding-left: 15px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.tagline {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: #d09f00;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 22px;
+}
+
+.tagline::before {
+    content: "";
+
+    width: 40px;
+    height: 4px;
+
+    background: #f4c430;
+
+    border-radius: 4px;
+}
+
+
+.hero-content h1 {
+    max-width: 700px;
+
+    font-size: clamp(45px, 5vw, 70px);
+
+    line-height: 1.02;
+
+    letter-spacing: -2.5px;
+
+    font-weight: 700;
+}
+
+.hero-content h1 span {
+    display: block;
+
+    color: #f0b900;
+}
+
+
+.description {
+    max-width: 570px;
+
+    margin-top: 27px;
+
+    color: #687078;
+
+    font-size: 16px;
+
+    line-height: 1.65;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 32px;
+}
+
+.primary-btn {
+    text-decoration: none;
+
+    background: #f4c430;
+
+    color: #111111;
+
+    padding: 14px 27px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.primary-btn:hover {
+    background: #e4b300;
+}
+
+
+.secondary-btn {
+    text-decoration: none;
+
+    background: #ffffff;
+
+    color: #333333;
+
+    border: 1px solid #cfcfcf;
+
+    padding: 13px 27px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.secondary-btn:hover {
+    border-color: #999999;
+}
+
+
+/* ================= RIGHT VISUAL ================= */
+
+.hero-visual {
+    position: relative;
+
+    height: 550px;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    /* visual ko thoda left balance kiya */
+    transform: translateX(-15px);
+}
+
+
+/* ================= LIGHT ================= */
+
+.light {
+    position: absolute;
+
+    width: 480px;
+    height: 480px;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 218, 88, 0.35) 0%,
+            rgba(255, 222, 100, 0.18) 35%,
+            rgba(255, 235, 160, 0.05) 65%,
+            transparent 75%
+        );
+
+    z-index: 0;
+}
+
+
+/* ================= YELLOW SHAPE ================= */
+
+.yellow-bg {
+    position: absolute;
+
+    width: 450px;
+    height: 330px;
+
+    top: 115px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        rotate(-5deg);
+
+    background: #ffd95a;
+
+    border-radius: 48% 52% 42% 58%;
+
+    opacity: 0.78;
+
+    z-index: 1;
+}
+
+
+/* ================= STUDENT IMAGE ================= */
+
+.student-image {
+    position: relative;
+
+    z-index: 3;
+
+    width: 470px;
+
+    max-width: 90%;
+
+    height: auto;
+
+    object-fit: contain;
+
+    /* Student ko exact center mein rakha */
+    transform: translateY(-3px);
+
+    filter:
+        drop-shadow(
+            0 18px 25px rgba(0, 0, 0, 0.10)
+        );
+}
+
+
+/* ================= BOTTOM LINE ================= */
+
+.bottom-line {
+    position: absolute;
+
+    width: 180px;
+    height: 4px;
+
+    background: #137e75;
+
+    bottom: 52px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+
+    z-index: 4;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about {
+    padding: 80px 6%;
+
+    text-align: center;
+
+    background: #171717;
+
+    color: white;
+}
+
+.about p {
+    color: #f4c430;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.about h2 {
+    margin-top: 12px;
+
+    font-size: 32px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .cams-logo {
+        width: 125px;
+    }
+
+    .nav-links {
+        gap: 22px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .login-btn {
+        padding: 10px 18px;
+    }
+
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 50px;
+
+        text-align: center;
+    }
+
+
+    .hero-content {
+        padding-left: 0;
+    }
+
+
+    .tagline {
+        justify-content: center;
+    }
+
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .buttons {
+        justify-content: center;
+    }
+
+
+    .hero-visual {
+        height: 500px;
+
+        margin-top: 20px;
+
+        transform: none;
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 70px;
+    }
+
+
+    .cams-logo {
+        width: 105px;
+    }
+
+
+    .nav-links {
+        display: none;
+    }
+
+
+    .login-btn {
+        padding: 10px 18px;
+
+        font-size: 12px;
+    }
+
+
+    .hero {
+        min-height: auto;
+
+        padding: 55px 5% 30px;
+    }
+
+
+    .hero-content h1 {
+        font-size: 42px;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .description {
+        font-size: 14px;
+    }
+
+
+    .hero-visual {
+        height: 420px;
+    }
+
+
+    .yellow-bg {
+        width: 340px;
+        height: 260px;
+
+        left: 50%;
+
+        transform:
+            translateX(-50%)
+            rotate(-5deg);
+    }
+
+
+    .student-image {
+        width: 350px;
+    }
+
+
+    .light {
+        width: 350px;
+        height: 350px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+    }
+
+
+    .bottom-line {
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        bottom: 20px;
+    }
+
+}
