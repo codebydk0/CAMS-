@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Students | College Admin</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="sidebar" id="sidebar">
+    <h2><i class="fa-solid fa-graduation-cap"></i> College Admin</h2>
+    <a href="index.html" class="menu-item"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="students.html" class="menu-item active"><i class="fa-solid fa-users"></i> Students</a>
+    <a href="#" class="menu-item"><i class="fa-solid fa-chalkboard-user"></i> Faculty</a>
+    <a href="#" class="menu-item"><i class="fa-solid fa-building"></i> Departments</a>
+    <a href="#" class="menu-item"><i class="fa-solid fa-book"></i> Courses</a>
+    <a href="#" class="menu-item"><i class="fa-solid fa-calendar-check"></i> Attendance</a>
+    <a href="#" class="menu-item"><i class="fa-solid fa-file-lines"></i> Examinations</a>
+    <a href="#" class="menu-item"><i class="fa-solid fa-calendar-days"></i> Timetable</a>
+    <a href="#" class="menu-item"><i class="fa-solid fa-money-bill"></i> Fees</a>
+    <a href="#" class="menu-item"><i class="fa-solid fa-bell"></i> Notices</a>
+    <a href="#" class="menu-item"><i class="fa-solid fa-chart-column"></i> Reports</a>
+    <a href="#" class="menu-item"><i class="fa-solid fa-gear"></i> Settings</a>
+</div>
+
+<div class="main">
+    <header>
+        <button id="mobileMenu"><i class="fa-solid fa-bars"></i></button>
+        <h1>Students Management</h1>
+        <div class="admin"><i class="fa-solid fa-user-circle"></i> Admin</div>
+    </header>
+
+    <section class="content">
+
+        <div class="page-top">
+            <div>
+                <h2>Students</h2>
+                <p>Manage all college students</p>
+            </div>
+            <button class="btn" onclick="openModal()">
+                <i class="fa-solid fa-plus"></i> Add Student
+            </button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <i class="fa-solid fa-users"></i>
+                <div><h3 id="totalStudents">5</h3><p>Total Students</p></div>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-user-check"></i>
+                <div><h3>4</h3><p>Active Students</p></div>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-user-graduate"></i>
+                <div><h3>3</h3><p>Graduation Year 2027</p></div>
+            </div>
+        </div>
+
+        <div class="table-box">
+            <div class="table-tools">
+                <div class="search">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search student..." onkeyup="searchStudent()">
+                </div>
+
+                <select id="departmentFilter" onchange="filterStudents()">
+                    <option value="All">All Departments</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Commerce">Commerce</option>
+                    <option value="Management">Management</option>
+                </select>
+            </div>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Year</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTable">
+                        <tr>
+                            <td>ST001</td>
+                            <td>Raj Sharma</td>
+                            <td>raj@gmail.com</td>
+                            <td>Computer Science</td>
+                            <td>2nd Year</td>
+                            <td><span class="status active-status">Active</span></td>
+                            <td><button class="edit" onclick="editStudent(this)">Edit</button><button class="delete" onclick="deleteStudent(this)">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>ST002</td>
+                            <td>Priya Singh</td>
+                            <td>priya@gmail.com</td>
+                            <td>Commerce</td>
+                            <td>1st Year</td>
+                            <td><span class="status active-status">Active</span></td>
+                            <td><button class="edit" onclick="editStudent(this)">Edit</button><button class="delete" onclick="deleteStudent(this)">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>ST003</td>
+                            <td>Arjun Yadav</td>
+                            <td>arjun@gmail.com</td>
+                            <td>Management</td>
+                            <td>3rd Year</td>
+                            <td><span class="status active-status">Active</span></td>
+                            <td><button class="edit" onclick="editStudent(this)">Edit</button><button class="delete" onclick="deleteStudent(this)">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>ST004</td>
+                            <td>Aman Verma</td>
+                            <td>aman@gmail.com</td>
+                            <td>Computer Science</td>
+                            <td>2nd Year</td>
+                            <td><span class="status inactive-status">Inactive</span></td>
+                            <td><button class="edit" onclick="editStudent(this)">Edit</button><button class="delete" onclick="deleteStudent(this)">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>ST005</td>
+                            <td>Ayush Kumar</td>
+                            <td>ayush@gmail.com</td>
+                            <td>Computer Science</td>
+                            <td>1st Year</td>
+                            <td><span class="status active-status">Active</span></td>
+                            <td><button class="edit" onclick="editStudent(this)">Edit</button><button class="delete" onclick="deleteStudent(this)">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<div class="modal" id="studentModal">
+    <div class="modal-box">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle">Add Student</h2>
+
+        <input type="text" id="studentName" placeholder="Student Name">
+        <input type="email" id="studentEmail" placeholder="Email">
+        
+        <select id="studentDepartment">
+            <option value="">Select Department</option>
+            <option>Computer Science</option>
+            <option>Commerce</option>
+            <option>Management</option>
+        </select>
+
+        <select id="studentYear">
+            <option value="">Select Year</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+        </select>
+
+        <button class="btn" onclick="saveStudent()">Save Student</button>
+    </div>
+</div>
+
+<script src="students.js"></script>
+</body>
+</html>
