@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CAMS | Login</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="react.js" defer></script>
+</head>
+
+<body>
+
+    <main class="login-box">
+
+        <!-- CAMS Logo -->
+        <div class="logo-container">
+            <img src="logo.jpg" alt="CAMS Logo" class="logo">
+        </div>
+
+        <h2>Welcome Back!</h2>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+
+            <div class="form-group">
+                <label for="role">Login As</label>
+
+                <select id="role" required>
+                    <option value="Student">Student</option>
+                    <option value="Faculty">Faculty</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">College Email</label>
+
+                <input type="email" id="email" placeholder="Enter your college email" autocomplete="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <div class="password-wrapper">
+
+                    <input type="password" id="password" placeholder="Enter your password"
+                        autocomplete="current-password" required>
+
+                    <button type="button" class="eye-btn" id="togglePassword" aria-label="Show password"
+                        aria-pressed="false">
+                        <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="forgot">
+                <a href="#" id="forgotLink">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login-btn" id="loginBtn">
+                Login
+            </button>
+
+            <div class="message" id="loginMessage" role="status" aria-live="polite"></div>
+
+        </form>
+
+    </main>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgotModal">
+
+        <section class="modal-content" role="dialog" aria-modal="true" aria-labelledby="resetTitle">
+
+            <button type="button" class="close-btn" id="closeModal" aria-label="Close">
+                &times;
+            </button>
+
+            <h2 id="resetTitle">Forgot Password?</h2>
+
+            <p class="modal-description" id="resetDescription">
+                Enter your registered college email to receive a password reset OTP.
+            </p>
+
+            <form id="resetForm">
+
+                <div class="form-group">
+                    <label for="resetEmail">College Email</label>
+
+                    <input type="email" id="resetEmail" placeholder="Enter your college email" autocomplete="email"
+                        required>
+                </div>
+
+                <div class="form-group" id="otpGroup" hidden>
+                    <label for="otp">Email OTP</label>
+
+                    <input type="text" id="otp" placeholder="Enter 6-digit OTP" inputmode="numeric" maxlength="6"
+                        pattern="[0-9]{6}">
+                </div>
+
+                <div class="form-group" id="newPasswordGroup" hidden>
+                    <label for="newPassword">New Password</label>
+
+                    <input type="password" id="newPassword" placeholder="Enter new password" minlength="8"
+                        autocomplete="new-password">
+                </div>
+
+                <div class="form-group" id="confirmPasswordGroup" hidden>
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <input type="password" id="confirmPassword" placeholder="Confirm new password" minlength="8"
+                        autocomplete="new-password">
+                </div>
+
+                <button type="submit" class="login-btn" id="resetBtn">
+                    Send OTP
+                </button>
+
+                <div class="message" id="resetMessage" role="status" aria-live="polite"></div>
+
+            </form>
+
+            <button type="button" class="back-link" id="backToLogin">
+                Back to Login
+            </button>
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>
