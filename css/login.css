@@ -1,0 +1,296 @@
+/* =========================
+   GENERAL STYLES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fffdf5;
+    padding: 20px;
+}
+
+/* =========================
+   LOGIN BOX
+========================= */
+
+.login-box {
+    width: 100%;
+    max-width: 450px;
+    background: #fff;
+    padding: 38px;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    display: block;
+    width: 190px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+h2 {
+    font-size: 25px;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   INPUT FIELDS
+========================= */
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 13px 12px;
+    border: 1px solid #d8d8d8;
+    border-radius: 7px;
+    background: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #e5b900;
+    box-shadow: 0 0 0 2px rgba(255, 218, 50, 0.15);
+}
+
+/* =========================
+   PASSWORD EYE ICON
+========================= */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 48px;
+}
+
+.eye-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+}
+
+.eye-btn svg {
+    width: 21px;
+    height: 21px;
+}
+
+/* =========================
+   FORGOT PASSWORD LINK
+========================= */
+
+.forgot {
+    text-align: right;
+    margin-top: -3px;
+    margin-bottom: 22px;
+}
+
+.forgot a {
+    color: #927300;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.forgot a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #ffda32;
+    color: #222;
+
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: #f1c900;
+}
+
+.login-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* =========================
+   STATUS MESSAGES
+========================= */
+
+.message {
+    display: none;
+    margin-top: 14px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.message.show {
+    display: block;
+}
+
+.message.error {
+    color: #a11;
+    background: #fff0f0;
+}
+
+.message.success {
+    color: #176534;
+    background: #edfff2;
+}
+
+/* =========================
+   FORGOT PASSWORD MODAL
+========================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 390px;
+
+    padding: 30px;
+
+    background: #fff;
+    border-radius: 12px;
+}
+
+.modal-content h2 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.modal-description {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    background: transparent;
+    border: none;
+
+    font-size: 26px;
+    color: #555;
+    cursor: pointer;
+}
+
+.back-link {
+    display: block;
+    width: 100%;
+
+    margin-top: 18px;
+
+    background: transparent;
+    border: none;
+
+    color: #806500;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 28px 22px;
+    }
+
+    .logo {
+        width: 165px;
+    }
+
+    .modal-content {
+        padding: 25px 20px;
+    }
+}
