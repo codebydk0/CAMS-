@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAMS | Student Dashboard</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="brand-row">
+        <img src="camslogo1.png" alt="CAMS Logo" class="cams-logo" />
+
+        <button
+          class="icon-button drawer-close"
+          id="drawerClose"
+          aria-label="Close menu"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="student-mini">
+        <div class="avatar">AK</div>
+        <div class="student-mini-info">
+          <strong>Aman Kumar</strong>
+          <span>B.Tech CSE · Semester 3</span>
+          <span>Meerut Institute of Technology</span>
+        </div>
+      </div>
+
+      <div class="nav-label">MENU</div>
+      <nav class="nav-list">
+        <button class="nav-item active" data-view="dashboard">
+          <i class="fa-solid fa-house"></i><span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-view="timetable">
+          <i class="fa-regular fa-calendar-days"></i><span>Timetable</span>
+        </button>
+        <button class="nav-item" data-view="assignments">
+          <i class="fa-regular fa-clipboard"></i><span>Assignments</span
+          ><span class="nav-count">3</span>
+        </button>
+        <button class="nav-item" data-view="notes">
+          <i class="fa-regular fa-folder-open"></i><span>Notes</span>
+        </button>
+        <button class="nav-item" data-view="results">
+          <i class="fa-solid fa-chart-column"></i><span>Results / Grades</span>
+        </button>
+        <button class="nav-item" data-view="notices">
+          <i class="fa-regular fa-bell"></i><span>Notices</span
+          ><span class="nav-count notice-count">2</span>
+        </button>
+        <button class="nav-item" data-view="profile">
+          <i class="fa-regular fa-user"></i><span>Profile</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip">
+          <i class="fa-regular fa-lightbulb"></i
+          ><span>Small steps every day lead to big results.</span>
+        </div>
+        <button class="nav-item logout-item" id="logoutButton">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i
+          ><span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button
+            class="icon-button menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="breadcrumb">
+            <span>Pages</span><i class="fa-solid fa-chevron-right"></i
+            ><strong id="breadcrumbCurrent">Dashboard</strong>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <label class="search-box"
+            ><i class="fa-solid fa-magnifying-glass"></i
+            ><input
+              id="globalSearch"
+              type="search"
+              placeholder="Search this page..."
+          /></label>
+          <button
+            class="icon-button notification-button"
+            id="notificationButton"
+            aria-label="Show notifications"
+          >
+            <i class="fa-regular fa-bell"></i
+            ><span class="notification-dot"></span>
+          </button>
+          <button class="top-profile" data-view="profile">
+            <span class="avatar avatar-small">AK</span><span>Aman</span
+            ><i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="content-area">
+        <!-- DASHBOARD -->
+        <section
+          class="page-view active"
+          id="view-dashboard"
+          data-title="Dashboard"
+        >
+          <div class="welcome-banner">
+            <div class="welcome-copy">
+              <span class="eyebrow">SUNDAY, OCTOBER 11, 2026</span>
+              <h1>Welcome back, Aman! <span class="wave">✦</span></h1>
+              <p>
+                Keep working towards your goals. Here's your academic overview
+                for today.
+              </p>
+              <button class="primary-button" data-view="timetable">
+                View today's plan <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="welcome-art" aria-hidden="true">
+              <div class="art-orbit"></div>
+              <div class="art-book book-one"></div>
+              <div class="art-book book-two"></div>
+              <div class="art-book book-three"></div>
+              <div class="cap">
+                <div class="cap-top"></div>
+                <div class="cap-base"></div>
+                <div class="cap-tassel"></div>
+              </div>
+              <div class="art-spark spark-one">✦</div>
+              <div class="art-spark spark-two">✧</div>
+            </div>
+          </div>
+
+          <div class="section-heading">
+            <div>
+              <h2>Your overview</h2>
+              <p>A quick look at your academic work.</p>
+            </div>
+            <span class="date-chip"
+              ><i class="fa-regular fa-calendar"></i> Semester 3</span
+            >
+          </div>
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-icon blue"
+                  ><i class="fa-solid fa-book-open"></i></span
+                ><span class="stat-tag">This semester</span>
+              </div>
+              <p>Subjects</p>
+              <strong>6</strong><small>Enrolled this semester</small>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-icon purple"
+                  ><i class="fa-regular fa-clipboard"></i></span
+                ><span class="stat-tag warning-tag">Needs attention</span>
+              </div>
+              <p>Pending Assignments</p>
+              <strong>3</strong
+              ><small><span class="text-warning">2 due this week</span></small>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-icon orange"
+                  ><i class="fa-regular fa-bell"></i></span
+                ><span class="stat-tag">Updates</span>
+              </div>
+              <p>New Notices</p>
+              <strong>5</strong
+              ><small
+                ><button class="text-link" data-view="notices">
+                  View latest updates
+                  <i class="fa-solid fa-arrow-right"></i></button
+              ></small>
+            </article>
+          </div>
+
+          <div class="current-lecture-card">
+            <div class="lecture-icon">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <div class="lecture-main">
+              <div class="lecture-heading">
+                <span class="eyebrow">CURRENT LECTURE</span
+                ><span class="status-pill" id="lectureStatus"
+                  >Sample schedule</span
+                >
+              </div>
+              <h2 id="currentLectureTitle">Data Structures</h2>
+              <p id="currentLectureTeacher">Prof. S. Sharma · Room C-101</p>
+              <div class="lecture-meta">
+                <span
+                  ><i class="fa-regular fa-clock"></i
+                  ><span id="currentLectureTime"
+                    >09:00 AM – 10:00 AM</span
+                  ></span
+                ><span
+                  ><i class="fa-solid fa-location-dot"></i
+                  ><span id="currentLectureRoom">C-101</span></span
+                >
+              </div>
+            </div>
+            <button class="outline-button" data-view="timetable">
+              Open timetable
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </button>
+          </div>
+
+          <div class="dashboard-columns">
+            <article class="panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>What's Due Next</h2>
+                  <p>Keep track of upcoming work.</p>
+                </div>
+                <button class="text-link" data-view="assignments">
+                  View all <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="due-list" id="dashboardDueList">
+                <div class="due-item" data-searchable>
+                  <span class="list-icon pink"
+                    ><i class="fa-regular fa-file-lines"></i
+                  ></span>
+                  <div class="list-copy">
+                    <strong>Data Structures Assignment</strong
+                    ><span>Implement a linked list</span>
+                  </div>
+                  <span class="due-date urgent">Tomorrow</span>
+                </div>
+                <div class="due-item" data-searchable>
+                  <span class="list-icon yellow"
+                    ><i class="fa-regular fa-file-lines"></i
+                  ></span>
+                  <div class="list-copy">
+                    <strong>Database Systems Quiz</strong
+                    ><span>Chapter 3–5 revision</span>
+                  </div>
+                  <span class="due-date due-soon">14 Oct</span>
+                </div>
+                <div class="due-item" data-searchable>
+                  <span class="list-icon lilac"
+                    ><i class="fa-regular fa-file-lines"></i
+                  ></span>
+                  <div class="list-copy">
+                    <strong>Web Development Project</strong
+                    ><span>Frontend prototype submission</span>
+                  </div>
+                  <span class="due-date">18 Oct</span>
+                </div>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Today's Classes</h2>
+                  <p>Your sample class schedule.</p>
+                </div>
+                <button class="text-link" data-view="timetable">
+                  Full timetable <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="class-list">
+                <div class="class-item">
+                  <span class="class-time">09:00<small>AM</small></span
+                  ><span class="timeline-line"></span>
+                  <div class="class-details">
+                    <strong>Data Structures</strong
+                    ><span>Prof. S. Sharma · C-101</span>
+                  </div>
+                  <span class="class-color blue-bg"></span>
+                </div>
+                <div class="class-item">
+                  <span class="class-time">10:00<small>AM</small></span
+                  ><span class="timeline-line"></span>
+                  <div class="class-details">
+                    <strong>Discrete Mathematics</strong
+                    ><span>Dr. A. Verma · B-204</span>
+                  </div>
+                  <span class="class-color purple-bg"></span>
+                </div>
+                <div class="class-item">
+                  <span class="class-time">11:30<small>AM</small></span
+                  ><span class="timeline-line"></span>
+                  <div class="class-details">
+                    <strong>Digital Electronics</strong
+                    ><span>Prof. R. Gupta · Lab 2</span>
+                  </div>
+                  <span class="class-color orange-bg"></span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <article class="panel recent-notices-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Recent Notices</h2>
+                <p>Announcements for your class.</p>
+              </div>
+              <button class="text-link" data-view="notices">
+                All notices <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="notice-row" data-searchable>
+              <span class="notice-symbol"
+                ><i class="fa-solid fa-bullhorn"></i
+              ></span>
+              <div>
+                <strong>Mid-semester examination schedule</strong>
+                <p>Examination Cell · 10 Oct 2026</p>
+              </div>
+              <span class="new-label">NEW</span>
+            </div>
+            <div class="notice-row" data-searchable>
+              <span class="notice-symbol pale"
+                ><i class="fa-solid fa-calendar-check"></i
+              ></span>
+              <div>
+                <strong>Project review submissions</strong>
+                <p>Department of Computer Science · 08 Oct 2026</p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- TIMETABLE -->
+        <section class="page-view" id="view-timetable" data-title="Timetable">
+          <div class="page-intro">
+            <div>
+              <span class="eyebrow">YOUR SCHEDULE</span>
+              <h1>Timetable</h1>
+              <p>Plan your classes and keep your day organized.</p>
+            </div>
+            <span class="date-chip"
+              ><i class="fa-regular fa-calendar"></i> Semester 3</span
+            >
+          </div>
+          <div class="filter-row">
+            <div class="segmented-control" id="dayTabs">
+              <button class="segment active" data-day="Monday">Monday</button
+              ><button class="segment" data-day="Tuesday">Tuesday</button
+              ><button class="segment" data-day="Wednesday">Wednesday</button
+              ><button class="segment" data-day="Thursday">Thursday</button
+              ><button class="segment" data-day="Friday">Friday</button>
+            </div>
+            <span class="muted-label">Sample timetable</span>
+          </div>
+          <div class="panel timetable-panel">
+            <div class="panel-heading">
+              <div>
+                <h2 id="timetableDayTitle">Monday's classes</h2>
+                <p>Times and rooms are sample data for this prototype.</p>
+              </div>
+              <span class="soft-badge">6 classes</span>
+            </div>
+            <div class="timetable-list" id="timetableList"></div>
+          </div>
+          <div class="info-note">
+            <i class="fa-regular fa-lightbulb"></i
+            ><span
+              >Tip: Check your timetable before the day starts so you know where
+              you need to be.</span
+            >
+          </div>
+        </section>
+
+        <!-- ASSIGNMENTS -->
+        <section
+          class="page-view"
+          id="view-assignments"
+          data-title="Assignments"
+        >
+          <div class="page-intro">
+            <div>
+              <span class="eyebrow">YOUR COURSEWORK</span>
+              <h1>Assignments</h1>
+              <p>Track deadlines and your assignment progress.</p>
+            </div>
+            <span class="date-chip"
+              ><i class="fa-regular fa-clipboard"></i> 3 pending</span
+            >
+          </div>
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <span>All assignments</span><strong>5</strong>
+            </div>
+            <div class="mini-stat">
+              <span>Pending</span><strong class="text-warning">3</strong>
+            </div>
+            <div class="mini-stat">
+              <span>Completed</span><strong class="text-success">2</strong>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Assignment list</h2>
+                <p>Sample assignments for Semester 3.</p>
+              </div>
+              <select
+                id="assignmentFilter"
+                class="select-control"
+                aria-label="Filter assignments"
+              >
+                <option value="all">All assignments</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Assignment</th>
+                    <th>Subject</th>
+                    <th>Due date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="assignmentTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- NOTES -->
+        <section class="page-view" id="view-notes" data-title="Notes">
+          <div class="page-intro">
+            <div>
+              <span class="eyebrow">STUDY MATERIAL</span>
+              <h1>Notes</h1>
+              <p>Browse subject-wise study material.</p>
+            </div>
+            <span class="date-chip"
+              ><i class="fa-regular fa-folder-open"></i> Sample library</span
+            >
+          </div>
+          <div class="notes-toolbar">
+            <label class="search-box notes-search"
+              ><i class="fa-solid fa-magnifying-glass"></i
+              ><input
+                id="notesSearch"
+                type="search"
+                placeholder="Search notes or subjects..." /></label
+            ><select
+              class="select-control"
+              id="notesSubjectFilter"
+              aria-label="Filter notes by subject"
+            >
+              <option value="all">All subjects</option>
+              <option>Data Structures</option>
+              <option>Digital Electronics</option>
+              <option>Discrete Mathematics</option>
+              <option>Database Systems</option>
+              <option>Web Development</option>
+            </select>
+          </div>
+          <div class="notes-grid" id="notesGrid"></div>
+          <div class="info-note">
+            <i class="fa-solid fa-circle-info"></i
+            ><span
+              >These are sample entries. Download opens a small prototype notice
+              because no actual note files have been added.</span
+            >
+          </div>
+        </section>
+
+        <!-- RESULTS -->
+        <section
+          class="page-view"
+          id="view-results"
+          data-title="Results / Grades"
+        >
+          <div class="page-intro">
+            <div>
+              <span class="eyebrow">ACADEMIC PERFORMANCE</span>
+              <h1>Results / Grades</h1>
+              <p>Review your sample marks and semester performance.</p>
+            </div>
+            <span class="date-chip"
+              ><i class="fa-solid fa-graduation-cap"></i> Semester 3</span
+            >
+          </div>
+          <div class="results-summary">
+            <div class="result-highlight">
+              <span class="result-icon"><i class="fa-solid fa-award"></i></span
+              ><span>Previous CGPA</span
+              ><strong>7.3 <small>/ 10</small></strong>
+              <p>Based on your provided profile detail.</p>
+            </div>
+            <div class="result-summary-card">
+              <span>Subjects shown</span><strong>5</strong
+              ><small>Sample internal assessment</small>
+            </div>
+            <div class="result-summary-card">
+              <span>Average score</span><strong>78%</strong
+              ><small>Sample marks only</small>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Subject-wise marks</h2>
+                <p>Illustrative marks; not official college results.</p>
+              </div>
+              <span class="soft-badge">Sample data</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Subject</th>
+                    <th>Internal (30)</th>
+                    <th>Assignment (20)</th>
+                    <th>Total (50)</th>
+                    <th>Grade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Data Structures</td>
+                    <td>25</td>
+                    <td>17</td>
+                    <td>42</td>
+                    <td><span class="grade-badge">A</span></td>
+                  </tr>
+                  <tr>
+                    <td>Discrete Mathematics</td>
+                    <td>23</td>
+                    <td>16</td>
+                    <td>39</td>
+                    <td><span class="grade-badge">B+</span></td>
+                  </tr>
+                  <tr>
+                    <td>Digital Electronics</td>
+                    <td>22</td>
+                    <td>15</td>
+                    <td>37</td>
+                    <td><span class="grade-badge">B+</span></td>
+                  </tr>
+                  <tr>
+                    <td>Database Systems</td>
+                    <td>26</td>
+                    <td>18</td>
+                    <td>44</td>
+                    <td><span class="grade-badge">A</span></td>
+                  </tr>
+                  <tr>
+                    <td>Web Development</td>
+                    <td>24</td>
+                    <td>18</td>
+                    <td>42</td>
+                    <td><span class="grade-badge">A</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- NOTICES -->
+        <section class="page-view" id="view-notices" data-title="Notices">
+          <div class="page-intro">
+            <div>
+              <span class="eyebrow">CAMPUS UPDATES</span>
+              <h1>Notices</h1>
+              <p>Important announcements and college updates.</p>
+            </div>
+            <span class="date-chip"
+              ><i class="fa-regular fa-bell"></i> 5 updates</span
+            >
+          </div>
+          <div class="notice-filter-row">
+            <button class="segment active" data-notice-filter="all">
+              All notices</button
+            ><button class="segment" data-notice-filter="academic">
+              Academic</button
+            ><button class="segment" data-notice-filter="events">Events</button>
+          </div>
+          <div class="notice-feed" id="noticeFeed"></div>
+        </section>
+
+        <!-- PROFILE -->
+        <section class="page-view" id="view-profile" data-title="Profile">
+          <div class="page-intro">
+            <div>
+              <span class="eyebrow">YOUR ACCOUNT</span>
+              <h1>Profile</h1>
+              <p>Your student information in one place.</p>
+            </div>
+            <span class="date-chip"
+              ><i class="fa-regular fa-user"></i> Student profile</span
+            >
+          </div>
+          <div class="profile-layout">
+            <article class="profile-card">
+              <div class="profile-cover"></div>
+              <div class="profile-card-body">
+                <div class="profile-avatar">AK</div>
+                <h2>Aman Kumar</h2>
+                <p>B.Tech Computer Science Engineering</p>
+                <span class="soft-badge">Semester 3</span>
+                <div class="profile-divider"></div>
+                <div class="profile-stat">
+                  <span>CGPA</span><strong>7.3 / 10</strong>
+                </div>
+                <div class="profile-stat">
+                  <span>College</span
+                  ><strong>Meerut Institute of Technology</strong>
+                </div>
+              </div>
+            </article>
+            <article class="panel profile-details">
+              <div class="panel-heading">
+                <div>
+                  <h2>Personal & academic details</h2>
+                  <p>Details based on information provided.</p>
+                </div>
+                <button class="outline-button" id="editProfileButton">
+                  <i class="fa-regular fa-pen-to-square"></i> Edit details
+                </button>
+              </div>
+              <form id="profileForm">
+                <div class="form-grid">
+                  <label class="form-field"
+                    ><span>Full name</span
+                    ><input name="name" value="Aman Kumar" required /></label
+                  ><label class="form-field"
+                    ><span>Degree</span
+                    ><input name="degree" value="B.Tech" required /></label
+                  ><label class="form-field"
+                    ><span>Branch</span
+                    ><input
+                      name="branch"
+                      value="Computer Science Engineering"
+                      required /></label
+                  ><label class="form-field"
+                    ><span>Semester</span
+                    ><input
+                      name="semester"
+                      value="3rd Semester"
+                      required /></label
+                  ><label class="form-field"
+                    ><span>College</span
+                    ><input
+                      name="college"
+                      value="Meerut Institute of Technology"
+                      required /></label
+                  ><label class="form-field"
+                    ><span>CGPA</span
+                    ><input name="cgpa" value="7.3" required /></label
+                  ><label class="form-field"
+                    ><span>10th CBSE</span
+                    ><input name="tenth" value="94.6%" required /></label
+                  ><label class="form-field"
+                    ><span>12th CBSE</span
+                    ><input name="twelfth" value="66%" required
+                  /></label>
+                </div>
+                <div class="form-actions">
+                  <span class="form-hint" id="profileFormHint"
+                    >Fields are locked until you select Edit details.</span
+                  ><button
+                    class="primary-button"
+                    type="submit"
+                    id="saveProfileButton"
+                    disabled
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </form>
+            </article>
+          </div>
+          <article class="panel skills-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Skills & tools</h2>
+                <p>Technologies listed in your profile.</p>
+              </div>
+            </div>
+            <div class="skill-chips">
+              <span>C</span><span>C++</span><span>Python</span><span>HTML</span
+              ><span>CSS</span><span>JavaScript</span><span>Git</span
+              ><span>GitHub</span><span>VS Code</span>
+            </div>
+          </article>
+        </section>
+
+        <footer class="footer">
+          <span>© 2026 CAMS · Student Portal</span
+          ><span>Frontend prototype · Sample academic data</span>
+        </footer>
+      </div>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <i class="fa-solid fa-circle-info"></i><span id="toastMessage"></span>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
