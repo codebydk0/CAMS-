@@ -130,7 +130,7 @@ app.get("/api/health", async (req, res) => {
 
 // Global error handler
 app.use((err, req, res, next) => {
-  console.error("Server error:", err.message);
+  console.error("Server error details:", err);
 
   if (res.headersSent) {
     return next(err);
