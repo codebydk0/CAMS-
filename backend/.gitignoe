@@ -2,6 +2,5 @@ node_modules/
 .env
 .env.*
 !.env.example
-
+certs/
 npm-debug.log*
-.DS_Store
