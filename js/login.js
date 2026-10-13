@@ -1,4 +1,4 @@
-const API = "http://localhost:5000/api/auth";
+const API = "https://cams-backend-0hf0.onrender.com/api/auth";
 
 const loginForm = document.getElementById("loginForm");
 const loginBtn = document.getElementById("loginBtn");
