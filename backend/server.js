@@ -2,6 +2,8 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
 const rateLimit = require("express-rate-limit");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
@@ -12,22 +14,23 @@ const adminRoutes = require("./routes/admin");
 
 const app = express();
 const isProduction = process.env.NODE_ENV === "production";
+const PORT = process.env.PORT || 5000;
 
+// Trust Render's reverse proxy in production
 if (isProduction) {
   app.set("trust proxy", 1);
 }
-// Login security: limit repeated login attempts
-const loginLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  limit: 10,
-  standardHeaders: "draft-7",
-  legacyHeaders: false,
-  message: {
-    success: false,
-    message: "Too many login attempts. Please try again after 15 minutes.",
-  },
-});
-const PORT = process.env.PORT || 5000;
+
+// SSL certificate for Aiven MySQL
+const caPath = path.join(__dirname, "certs", "ca.pem");
+
+let caCertificate;
+
+if (process.env.DB_CA_CERT) {
+  caCertificate = process.env.DB_CA_CERT.replace(/\\n/g, "\n");
+} else {
+  caCertificate = fs.readFileSync(caPath, "utf8");
+}
 
 // CORS configuration
 const allowedOrigins = [
@@ -40,19 +43,39 @@ app.use(
   cors({
     origin: allowedOrigins,
     credentials: true,
-  }),
+  })
 );
 
-// Request body parsing
+// Parse incoming request data
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
+
+// Login rate limiter
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 10,
+  standardHeaders: "draft-7",
+  legacyHeaders: false,
+  message: {
+    success: false,
+    message:
+      "Too many login attempts. Please try again after 15 minutes.",
+  },
+});
 
 // MySQL session store
 const sessionStore = new MySQLStore({
   host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT || 3306),
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+
+  ssl: {
+    ca: caCertificate,
+    rejectUnauthorized: true,
+  },
+
   createDatabaseTable: true,
 });
 
@@ -70,17 +93,17 @@ app.use(
       sameSite: isProduction ? "none" : "lax",
       maxAge: 2 * 60 * 60 * 1000,
     },
-  }),
+  })
 );
 
-// Authentication routes — after session middleware
+// Authentication routes
 app.use("/api/auth/login", loginLimiter);
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 
 // Root route
 app.get("/", (req, res) => {
-  res.json({
+  res.status(200).json({
     success: true,
     message: "Welcome to CAMS Backend API",
   });
@@ -105,7 +128,7 @@ app.get("/api/health", async (req, res) => {
   }
 });
 
-// Error handler
+// Global error handler
 app.use((err, req, res, next) => {
   console.error("Server error:", err.message);
 
@@ -121,5 +144,5 @@ app.use((err, req, res, next) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`CAMS backend running on http://localhost:${PORT}`);
+  console.log(`CAMS backend running on port ${PORT}`);
 });
